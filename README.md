@@ -65,33 +65,42 @@ El flujo de datos es unidireccional:
 
 ## 📁 Estructura del Proyecto
 CryptoMonitor/
-├── .env.example            # Variables de entorno de ejemplo
-├── .gitignore
-├── README.md               # Este archivo
-├── requirements.txt        # Dependencias del proyecto
-├── app.py                  # Punto de entrada de Streamlit
+├── .env.example                # Variables de entorno de ejemplo
+├── .streamlit/
+│   └── config.toml             # Configuración visual inicial de Streamlit
+├── app.py                      # Punto de entrada de Streamlit
+├── docs/
+│   └── architecture.md         # Notas de arquitectura
+├── pyproject.toml              # Metadata, dependencias y configuración base
 ├── src/
-│   ├── domain/
-│   │   ├── __init__.py
-│   │   ├── entities.py     # Entidades y value objects
-│   │   └── interfaces.py   # Abstracciones de repositorios
-│   ├── application/
-│   │   ├── __init__.py
-│   │   └── use_cases.py    # Casos de uso
-│   ├── infrastructure/
-│   │   ├── __init__.py
-│   │   ├── config.py       # Configuración (Settings)
-│   │   ├── api_client.py   # Cliente HTTP para CoinGecko
-│   │   └── repositories.py # Implementación del repositorio
-│   └── presentation/
+│   └── crypto_monitor/
 │       ├── __init__.py
-│       └── components.py   # Componentes UI reutilizables
-├── tests/                  # Pruebas unitarias y de integración
-│   ├── domain/
-│   ├── application/
-│   └── infrastructure/
-└── docs/                   # Documentación adicional
-   └── architecture.md
+│       ├── application/
+│       │   ├── __init__.py
+│       │   └── use_cases.py    # Casos de uso
+│       ├── domain/
+│       │   ├── __init__.py
+│       │   ├── entities.py     # Entidades y objetos de valor
+│       │   └── ports.py        # Contratos del dominio
+│       ├── infrastructure/
+│       │   ├── __init__.py
+│       │   ├── coingecko_client.py
+│       │   ├── config.py       # Configuración (settings)
+│       │   └── repositories.py # Implementaciones concretas
+│       └── presentation/
+│           ├── __init__.py
+│           ├── app.py          # Construcción de la UI
+│           └── components.py   # Componentes reutilizables
+└── tests/
+      ├── __init__.py
+      ├── application/
+      │   └── test_placeholder.py
+      ├── domain/
+      │   └── test_placeholder.py
+      ├── infrastructure/
+      │   └── test_placeholder.py
+      └── presentation/
+            └── test_placeholder.py
 
 
 ---
