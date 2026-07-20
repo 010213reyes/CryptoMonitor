@@ -1,25 +1,35 @@
-[build-system]
-requires = ["setuptools>=68", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "crypto-monitor"
-version = "0.1.0"
-description = "Aplicación Streamlit para monitorear criptomonedas con arquitectura limpia."
+version = "1.0.0"
+description = "Aplicación para monitorear criptomonedas utilizando Streamlit."
+authors = [
+    {name = "Luis Alberto Reyes Estrada"}
+]
 readme = "README.md"
 requires-python = ">=3.10"
+
 dependencies = [
-    "streamlit>=1.28",
-    "requests>=2.31",
-    "python-dotenv>=1.0",
+    "streamlit>=1.36.0",
+    "requests>=2.32.0",
+    "python-dotenv>=1.0.1",
+    "pydantic>=2.7.0"
 ]
 
-[tool.setuptools]
-package-dir = {"" = "src"}
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2.0",
+    "black>=24.4.2",
+    "isort>=5.13.2",
+    "mypy>=1.10.0"
+]
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
 
 [tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["src"]
+pythonpath = [
+    "src"
+]
